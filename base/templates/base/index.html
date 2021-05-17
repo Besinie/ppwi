@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl-PL">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static '/style.css' %}" type="text/css">
+<title>Daniel Szot - PwI</title>
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class='nav1'><a href="#"><img id='logoImg' src="{% static '/images/logo.png' %}" alt="logo"></a></li>
+                <li class='nav2'><a href="#">Rubik's World</a></li>
+                <li class='nav3'><a href="#">Tic Cube Toe</a></li>
+                <li class='nav4'><a href="#">Speedcubing</a></li>
+                <li class='nav5'><a href="#">Algorytmy</a></li>
+                <li class='nav6'><a href="#">Jak zacząć</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 class="mainh2">Tu będzie spis treści każdej pozycji z paska nawigacyjnego</h2>
+        <div class="container">
+
+            <h1 class="title">Tic <span>Cube</span> Toe</h1>
+            <div class="status-action">
+              <div class="status">Gracz 1 jest kolejny</div>
+              <div class="reset">Reset</div>
+            </div>
+            <div class="game-grid">
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+              <div class="game-cell"></div>
+            </div>
+            <div class='mode-status'>
+                <div class='mode sp choose'>1 gracz</div>
+                <div class='mode mp'>2 graczy</div>
+            </div>
+          </div>
+
+
+        <div class="algorithm">
+
+            <table class="alg-table" style="width:100%">
+                <tr>
+                    <th class="header-table" colspan="3">
+                        Liczba algorytmów w bazie: {{algorithm.count}}
+                    </th>
+                </tr>
+                 <tr id="heading">
+                    <th>Nazwa</th>
+                    <th>Algorytm</th>
+                    <th>Wygląd</th>
+                 </tr>
+                {% for i in algorithm %}
+                <tr>
+                    <td class="name">{{i.name}}</td>
+                    <td style="text-align: center; color: white;">{{i.desctiption}}</td>
+                    <td><img src="{{i.image.url}}" alt="{{i.name}}"></td>
+                 </tr>
+                {% endfor %}
+
+</table>
+
+
+
+        </div>
+
+
+        </main>
+    <aside>
+        <h2 class="asideh2">Tu będzie spis treści każdej pozycji z paska nawigacyjnego</h2>
+    </aside>
+    <footer><p id='stopka'>Strona tworzona w ramach zajęć Programowanie w Internecie</p></footer>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static '/script.js' %}"></script>
+    <script src="{% static '/spa.js' %}"></script>
+</body>
+
+</html>
